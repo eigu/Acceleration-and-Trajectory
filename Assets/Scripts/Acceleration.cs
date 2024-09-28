@@ -27,14 +27,16 @@ public class Acceleration : MonoBehaviour
     {
         m_timer += Time.deltaTime;
 
-        m_distance = _pointB.position - transform.position;
-
         if (m_timer < _duration * .5f)
         {
+            m_distance = _pointB.position - transform.position;
+
             _rb.velocity = Vector3.Lerp(Vector3.zero, m_distance, m_timer / _duration);
         }
         else
         {
+            m_distance = _pointB.position - transform.position;
+
             _rb.velocity = Vector3.Lerp(m_distance, Vector3.zero, m_timer / _duration);
         }
 
